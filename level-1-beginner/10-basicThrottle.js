@@ -15,6 +15,14 @@
 
 function throttle(fn, delay) {
   // TODO: Implement your solution here
+  let lastCall = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      fn.apply(this, args);
+    }
+  };
 }
 
 // Test cases

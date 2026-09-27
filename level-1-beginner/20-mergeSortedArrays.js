@@ -12,6 +12,29 @@
 
 function mergeSortedArrays(arr1, arr2) {
   // TODO: Implement your solution here
+  let i = 0,
+    j = 0,
+    l = arr1.length - 1,
+    m = arr2.length - 1;
+  const result = [];
+  while (i <= l && j <= m) {
+    if (arr1[i] <= arr2[j]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i <= l) {
+    result.push(arr1[i]);
+    i++;
+  }
+  while (j <= m) {
+    result.push(arr2[j]);
+    j++;
+  }
+  return result;
 }
 
 // Test cases

@@ -12,6 +12,15 @@
 
 function countOccurrences(arr) {
   // TODO: Implement your solution here
+  const result = {};
+  for (const item of arr) {
+    if (result[item]) {
+      result[item]++;
+    } else {
+      result[item] = 1;
+    }
+  }
+  return result;
 }
 
 // Test cases

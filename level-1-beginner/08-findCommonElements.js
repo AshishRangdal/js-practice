@@ -12,6 +12,9 @@
 
 function findCommonElements(arr1, arr2) {
   // TODO: Implement your solution here
+
+  // 1 approach
+  return arr1.filter((item)=> arr2.includes(item))
 }
 
 // Test cases

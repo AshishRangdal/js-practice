@@ -12,6 +12,12 @@
 
 function removeDuplicates(arr) {
   // TODO: Implement your solution here
+
+  // 1 approach
+  // return [...new Set(arr)]
+
+  // 2 approach
+  return arr.filter((item,index)=> arr.indexOf(item) === index)
 }
 
 // Test cases

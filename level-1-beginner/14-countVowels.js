@@ -13,6 +13,12 @@
 
 function countVowels(str) {
   // TODO: Implement your solution here
+  const vowel = "aeiouAEIOU";
+  let ans = 0;
+  for (let ch of str) {
+    if (vowel.includes(ch)) ans++;
+  }
+  return ans;
 }
 
 // Test cases

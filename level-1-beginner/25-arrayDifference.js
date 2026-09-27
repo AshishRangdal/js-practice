@@ -11,6 +11,15 @@
 
 function arrayDifference(arr1, arr2) {
   // TODO: Implement your solution here
+  const result = []
+  
+  for(let item of arr1){
+    if(! arr2.includes(item)){
+      result.push(item)
+    }
+  }
+  return result
+
 }
 
 // Test cases

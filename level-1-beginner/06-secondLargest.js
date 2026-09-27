@@ -12,6 +12,24 @@
 
 function findSecondLargest(numbers) {
   // TODO: Implement your solution here
+
+  // 1 approach
+  // return numbers.filter((item,index)=> numbers.indexOf(item) === index).sort((a,b)=> b-a)[1]
+
+  // 2 approach
+  let largest = -Infinity;
+  let second = -Infinity;
+
+  for (const num of numbers) {
+    if (num > largest) {
+      second = largest;
+      largest = num;
+    } else if (num > second && num < largest) {
+      second = num;
+    }
+  }
+
+  return second === -Infinity ? null : second;
 }
 
 // Test cases

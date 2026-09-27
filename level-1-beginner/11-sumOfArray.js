@@ -13,6 +13,7 @@
 
 function sumOfArray(numbers) {
   // TODO: Implement your solution here
+  return numbers.reduce((acc, num) => acc + num, 0);
 }
 
 // Test cases

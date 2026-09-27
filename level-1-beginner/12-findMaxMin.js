@@ -12,6 +12,24 @@
 
 function findMaxMin(numbers) {
   // TODO: Implement your solution here
+  if (numbers.length === 0) return null;
+
+  // 1 approach
+  // numbers.sort((a,b)=> a-b);
+  // return {"min": numbers[0], "max" : numbers[numbers.length -1]}
+
+  // 2 approach
+  let mini = [Infinity],
+    maxi = [-Infinity];
+  for (let num of numbers) {
+    if (num > maxi) {
+      maxi = num;
+    }
+    if (num < mini) {
+      mini = num;
+    }
+  }
+  return { min: mini, max: maxi };
 }
 
 // Test cases

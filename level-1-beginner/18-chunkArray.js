@@ -12,6 +12,33 @@
 
 function chunkArray(arr, size) {
   // TODO: Implement your solution here
+  if (arr.length === 0) return [];
+
+  // 1 approach iterative
+  const result = [];
+  // while(arr.length){
+  //   result.push(arr.splice(0,size))
+  // }
+
+  // for (let i = 0; i < arr.length; i += size) {
+  //       result.push(arr.slice(i, i + size));
+  //   }
+
+  // return result
+
+  // return arr.reduce((result, item, index) => {
+  //       const chunkIndex = Math.floor(index / size);
+
+  //       if (!result[chunkIndex]) {
+  //           result[chunkIndex] = [];
+  //       }
+
+  //       result[chunkIndex].push(item);
+
+  //       return result;
+  //   }, []);
+
+  return [arr.slice(0, size), ...chunkArray(arr.slice(size), size)];
 }
 
 // Test cases

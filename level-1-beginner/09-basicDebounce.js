@@ -15,6 +15,13 @@
 
 function debounce(fn, delay) {
   // TODO: Implement your solution here
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
 }
 
 // Test cases

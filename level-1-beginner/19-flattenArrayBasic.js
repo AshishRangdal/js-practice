@@ -12,6 +12,20 @@
 
 function flattenBasic(arr) {
   // TODO: Implement your solution here
+
+  // 1 approach inbuilt method
+  // return arr.flat(Infinity)
+
+  // 2 iterative
+  const result = []
+  for(let item of arr){
+    if(Array.isArray(item)){
+      result.push(...flattenBasic(item))
+    }else{
+      result.push(item)
+    }
+  }
+  return result
 }
 
 // Test cases

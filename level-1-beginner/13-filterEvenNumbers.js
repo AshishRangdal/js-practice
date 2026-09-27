@@ -11,6 +11,10 @@
 
 function filterEvenOdd(numbers) {
   // TODO: Implement your solution here
+  const even = numbers.filter((item)=> item % 2 === 0)
+  const odd = numbers.filter((item)=> item % 2 !== 0)
+  return {"evens": even, "odds": odd}
+
 }
 
 // Test cases

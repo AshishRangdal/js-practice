@@ -12,9 +12,16 @@
 
 function findMissingNumber(numbers) {
   // TODO: Implement your solution here
-  let total = numbers.reduce((acc,num) => acc+num,0)
+
+  // 1 approach
+  // let total = numbers.reduce((acc,num) => acc+num,0)
   let n = numbers.length + 1
-  return (n * (n+1)) / 2 - total;
+  // return (n * (n+1)) / 2 - total;
+
+  // 2 approach
+  for(let i=1; i<=n; i++){
+    if(!numbers.includes(i)) return i;
+  }
 }
 
 // Test cases

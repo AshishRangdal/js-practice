@@ -11,6 +11,14 @@
 
 function findLongestWord(sentence) {
   // TODO: Implement your solution here
+  let idx=0;
+  const words = sentence.trim().split(" ");
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > words[idx].length) {
+      idx = i;
+    }
+  }
+  return words[idx];
 }
 
 // Test cases

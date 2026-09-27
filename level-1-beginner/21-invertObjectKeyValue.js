@@ -12,6 +12,21 @@
 
 function invertObject(obj) {
   // TODO: Implement your solution here
+
+  // 1 approach
+  // const keys = Object.keys(obj);
+  // const values = Object.values(obj);
+  // const result = {};
+  // for (let it = 0; it < values.length; it++) {
+  //   result[values[it]] = keys[it];
+  // }
+  // return result;
+
+  // 2 approach
+  return Object.entries(obj).reduce((acc, [key, value]) => {
+    acc[value] = key;
+    return acc;
+  }, {});
 }
 
 // Test cases

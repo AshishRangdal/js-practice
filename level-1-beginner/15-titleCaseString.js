@@ -12,6 +12,14 @@
 
 function titleCase(str) {
   // TODO: Implement your solution here
+  const result = str
+    .split(" ")
+    .filter((word) => (word === "" ? null : word))
+    .map((word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(" ");
+  return result;
 }
 
 // Test cases

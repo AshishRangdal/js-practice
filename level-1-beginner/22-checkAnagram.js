@@ -12,6 +12,26 @@
 
 function isAnagram(str1, str2) {
   // TODO: Implement your solution here
+  const cnt1 = {},
+    cnt2 = {};
+  for (const item of str1) {
+    if (cnt1[item]) {
+      cnt1[item]++;
+    } else {
+      cnt1[item] = 1;
+    }
+  }
+  for (const item of str2) {
+    if (cnt2[item]) {
+      cnt2[item]++;
+    } else {
+      cnt2[item] = 1;
+    }
+  }
+  for (let [key, value] of Object.entries(cnt1)) {
+    if (cnt2[key] !== value) return false;
+  }
+  return true;
 }
 
 // Test cases
