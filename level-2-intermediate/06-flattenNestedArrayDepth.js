@@ -16,15 +16,25 @@ function flattenDepth(arr, depth = 1) {
   // return arr.flat(depth);
 
   // 2 approach
-  const result = [];
-  for (let item of arr) {
+  // const result = [];
+  // for (let item of arr) {
+  //   if (Array.isArray(item) && depth > 0) {
+  //     result.push(...flattenDepth(item, depth - 1));
+  //   } else {
+  //     result.push(item);
+  //   }
+  // }
+  // return result;
+
+  // 3 approach using reduce
+  return arr.reduce((acc, item) => {
     if (Array.isArray(item) && depth > 0) {
-      result.push(...flattenDepth(item, depth - 1));
+      acc.push(...flattenDepth(item, depth - 1));
     } else {
-      result.push(item);
+      acc.push(item);
     }
-  }
-  return result;
+    return acc;
+  }, []);
 }
 
 // Test cases
