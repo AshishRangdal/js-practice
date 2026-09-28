@@ -11,10 +11,20 @@
 
 function mapWithReduce(arr, callback) {
   // TODO: Implement your solution here using arr.reduce
+  return arr.reduce((acc, item) => {
+    acc.push(callback(item));
+    return acc;
+  }, []);
 }
 
 function filterWithReduce(arr, predicate) {
   // TODO: Implement your solution here using arr.reduce
+  return arr.reduce((acc, item) => {
+    if (predicate(item)) {
+      acc.push(item);
+    }
+    return acc;
+  }, []);
 }
 
 // Test cases
