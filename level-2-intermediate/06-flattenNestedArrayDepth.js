@@ -9,9 +9,22 @@
  * Input: [1, [2, [3, [4]], 5]], 1 -> Output: [1, 2, [3, [4]], 5]
  * Input: [1, [2, [3, [4]], 5]], 2 -> Output: [1, 2, 3, [4], 5]
  */
-
 function flattenDepth(arr, depth = 1) {
   // TODO: Implement your solution here
+
+  // 1 approach
+  // return arr.flat(depth);
+
+  // 2 approach
+  const result = [];
+  for (let item of arr) {
+    if (Array.isArray(item) && depth > 0) {
+      result.push(...flattenDepth(item, depth - 1));
+    } else {
+      result.push(item);
+    }
+  }
+  return result;
 }
 
 // Test cases
