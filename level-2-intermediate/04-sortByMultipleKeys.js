@@ -17,6 +17,15 @@
 
 function sortByMultipleKeys(arr, criteria) {
   // TODO: Implement your solution here
+  for (let i = criteria.length - 1; i >= 0; i--) {
+    const { key, order } = criteria[i];
+    arr.sort((a, b) => {
+      if (a[key] < b[key]) return order === 'asc' ? -1 : 1;
+      if (a[key] > b[key]) return order === 'asc' ? 1 : -1;
+      return 0;
+    });
+  }
+  return arr;
 }
 
 // Test cases

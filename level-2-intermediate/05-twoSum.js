@@ -14,6 +14,15 @@
 
 function twoSum(nums, target) {
   // TODO: Implement your solution here
+  const numToIndex = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+    if (numToIndex.has(complement)) {
+      return [numToIndex.get(complement), i];
+    }
+    numToIndex.set(nums[i], i);
+  }
+  return [];
 }
 
 // Test cases
