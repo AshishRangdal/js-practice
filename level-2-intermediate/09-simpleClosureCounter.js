@@ -12,6 +12,26 @@
 
 function createCounter(initialValue = 0) {
   // TODO: Implement your solution here
+  let counter = initialValue;
+  function getValue() {
+    return counter;
+  }
+  function increment() {
+    return ++counter;
+  }
+  function decrement() {
+    return --counter;
+  }
+  function reset() {
+    counter = initialValue;
+    return counter;
+  }
+  return {
+    getValue,
+    increment,
+    decrement,
+    reset,
+  };
 }
 
 // Test cases
