@@ -22,6 +22,25 @@
 
 function groupBy(arr, key) {
   // TODO: Implement your solution here
+  // 1 approach: Using a for loop and an object to accumulate results
+  const result = {};
+  for (const item of arr) {
+    (result[item[key]] ??= []).push(item);
+  }
+  return result;
+
+  // 2 approach: Using Array.prototype.reduce
+  return arr.reduce((result, item) => {
+    const groupKey = item[key];
+
+    if (!result[groupKey]) {
+      result[groupKey] = [];
+    }
+
+    result[groupKey].push(item);
+
+    return result;
+  }, {});
 }
 
 // Test cases
@@ -29,7 +48,7 @@ const people = [
   { name: "Alice", role: "admin" },
   { name: "Bob", role: "user" },
   { name: "Charlie", role: "admin" },
-  { name: "David", role: "guest" }
+  { name: "David", role: "guest" },
 ];
 
 console.log(groupBy(people, "role"));

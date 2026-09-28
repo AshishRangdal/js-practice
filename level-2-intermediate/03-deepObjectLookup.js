@@ -14,6 +14,15 @@
 
 function get(obj, path, defaultValue = undefined) {
   // TODO: Implement your solution here
+  const keys = Array.isArray(path) ? path : path.split(".");
+  let current = obj;
+  if(!current || typeof current !== "object") {
+    return defaultValue;
+  }
+  if(keys.length === 1) {
+    return current[keys[0]] ?? defaultValue
+  }
+  return get(current[keys[0]], keys.slice(1), defaultValue)
 }
 
 // Test cases

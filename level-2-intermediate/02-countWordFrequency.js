@@ -12,6 +12,15 @@
 
 function countWordFrequency(text) {
   // TODO: Implement your solution here
+  return text
+    .replace(/[^a-zA-Z0-9\s]/g, "")
+    .toLowerCase()
+    .trim()
+    .split(/\s+/)
+    .reduce((result, word) => {
+      result[word] = (result[word] || 0) + 1;
+      return result;
+    }, {});
 }
 
 // Test cases
