@@ -18,6 +18,13 @@
 
 function uniqueValuesByKey(arr, key) {
   // TODO: Implement your solution here
+  const result = new Set()
+  for(let item of arr){
+    if(item[key]){
+      result.add(item[key])
+    }
+  }
+  return [...result]
 }
 
 // Test cases
