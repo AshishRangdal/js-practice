@@ -12,6 +12,22 @@
 
 function compressString(str) {
   // TODO: Implement your solution here
+
+  // 2 approach: Using a single pass through the string to build the compressed version
+
+  let compressed = '';
+  let count = 1;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      count++;
+    } else {
+      compressed += str[i] + count;
+      count = 1;
+    }
+  }
+  
+  return compressed.length < str.length ? compressed : str;
 }
 
 // Test cases
