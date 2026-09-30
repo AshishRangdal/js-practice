@@ -9,6 +9,17 @@
 
 function executeInContext(fn, context, args, methodType) {
   // TODO: Implement your solution here
+  
+  // 1. Check the methodType and call the appropriate method
+  if (methodType === "call") {
+    return fn.call(context, ...args);
+  } else if (methodType === "apply") {
+    return fn.apply(context, args);
+  } else if (methodType === "bind") {
+    return fn.bind(context, ...args);
+  } else {
+    throw new Error("Invalid method type. Use 'call', 'apply', or 'bind'.");
+  }
 }
 
 // Test cases

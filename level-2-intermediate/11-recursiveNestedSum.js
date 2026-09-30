@@ -10,6 +10,20 @@
 
 function recursiveNestedSum(arr) {
   // TODO: Implement your solution here
+
+  // 1 approach
+  // return arr.flat(Infinity).reduce((acc,num)=> acc+num,0)
+
+  // 2 approach
+  let ans=0;
+  for(let item of arr){
+    if(Array.isArray(item)){
+    ans+= recursiveNestedSum(item);
+    }else{
+      ans+=item
+    }
+  }
+  return ans;
 }
 
 // Test cases
