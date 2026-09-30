@@ -13,6 +13,22 @@
 
 function binarySearch(sortedArr, target) {
   // TODO: Implement your solution here
+  let start = 0;
+  let end = sortedArr.length - 1;
+
+  while (start <= end) {
+    const mid = Math.floor((start + end) / 2);
+
+    if (sortedArr[mid] === target) {
+      return mid;
+    } else if (sortedArr[mid] < target) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+
+  return -1;
 }
 
 // Test cases
