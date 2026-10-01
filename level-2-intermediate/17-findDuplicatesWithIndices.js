@@ -12,6 +12,16 @@
 
 function findDuplicatesWithIndices(arr) {
   // TODO: Implement your solution here
+  const result = {}
+  for(let it=0; it<arr.length;it++){
+    (result[arr[it]] ??= []).push(it)
+  }
+  for(let key in result){
+    if(result[key].length <=1){
+      delete result[key]
+    }
+  }
+  return result;
 }
 
 // Test cases
