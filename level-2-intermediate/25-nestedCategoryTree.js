@@ -15,8 +15,29 @@
  * ];
  */
 
+
 function buildCategoryTree(flatList) {
   // TODO: Implement your solution here
+  const idToNodeMap = {};
+  const tree = [];
+
+  for (const item of flatList) {
+    idToNodeMap[item.id] = { ...item, children: [] };
+  }
+
+  for (const item of flatList) {
+    if (item.parentId === null) {
+      tree.push(idToNodeMap[item.id]);
+    } else {
+      const parentNode = idToNodeMap[item.parentId];
+      if (parentNode) {
+        parentNode.children.push(idToNodeMap[item.id]);
+      }
+    }
+  }
+
+  return tree;
+  
 }
 
 // Test cases
