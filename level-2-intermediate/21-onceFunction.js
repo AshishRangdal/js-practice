@@ -13,6 +13,13 @@
 
 function once(fn) {
   // TODO: Implement your solution here
+  return function(...args) {
+    if (!fn.called) {
+      fn.called = true;
+      fn.result = fn(...args);
+    }
+    return fn.result;
+  };
 }
 
 // Test cases
