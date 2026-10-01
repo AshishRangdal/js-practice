@@ -14,6 +14,25 @@
 
 function diffObjects(obj1, obj2) {
   // TODO: Implement your solution here
+  const added = {};
+  const updated = {};
+  const removed = {};
+
+  for (const key in obj2) {
+    if (!(key in obj1)) {
+      added[key] = obj2[key];
+    } else if (obj1[key] !== obj2[key]) {
+      updated[key] = { from: obj1[key], to: obj2[key] };
+    }
+  }
+
+  for (const key in obj1) {
+    if (!(key in obj2)) {
+      removed[key] = obj1[key];
+    }
+  }
+
+  return { added, updated, removed };
 }
 
 // Test cases
