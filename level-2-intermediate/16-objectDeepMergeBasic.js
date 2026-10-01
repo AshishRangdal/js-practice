@@ -15,6 +15,29 @@
 
 function deepMergeBasic(target1, target2) {
   // TODO: Implement your solution here
+
+  const merged = { ...target1 };
+  for (const key in target2) {
+    if (target2.hasOwnProperty(key)) {
+      if (
+        typeof target2[key] === 'object' &&
+        target2[key] !== null &&
+        !Array.isArray(target2[key]) &&
+        typeof merged[key] === 'object' &&
+        merged[key] !== null &&
+        !Array.isArray(merged[key])
+      ) {
+        merged[key] = deepMergeBasic(merged[key], target2[key]);
+      } else {
+        merged[key] = target2[key];
+      }
+    }
+  }
+
+  return merged;
+
+  
+  
 }
 
 // Test cases
