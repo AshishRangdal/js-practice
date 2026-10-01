@@ -16,6 +16,16 @@
 
 function validateSchema(obj, schema) {
   // TODO: Implement your solution here
+  const errors = [];
+  for (const key in schema) {
+    const { type, required } = schema[key];
+    if (required && !(key in obj)) {
+      errors.push(`Field "${key}" is required`);
+    } else if (key in obj && typeof obj[key] !== type) {
+      errors.push(`Field "${key}" must be of type ${type}`);
+    }
+  }
+  return { valid: errors.length === 0, errors };
 }
 
 // Test cases
