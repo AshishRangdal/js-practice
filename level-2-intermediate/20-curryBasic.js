@@ -12,6 +12,15 @@
 
 function curry3(fn) {
   // TODO: Implement your solution here
+  return function curried(...args) {
+    if (args.length >= 3) {
+      return fn(...args);
+    } else {
+      return function(...nextArgs) {
+        return curried(...args, ...nextArgs);
+      };
+    }
+  };
 }
 
 // Test cases
