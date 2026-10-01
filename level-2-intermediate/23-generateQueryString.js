@@ -11,10 +11,21 @@
 
 function buildQueryString(params) {
   // TODO: Implement your solution here
+  return "?" + Object.entries(params)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .join("&");
+
 }
 
 function parseQueryString(queryString) {
   // TODO: Implement your solution here
+  const params = {};
+  const pairs = queryString.substring(1).split("&");
+  for (const pair of pairs) {
+    const [key, value] = pair.split("=");
+    params[decodeURIComponent(key)] = decodeURIComponent(value);
+  }
+  return params;
 }
 
 // Test cases
